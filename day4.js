@@ -13,11 +13,11 @@ const day4 = () => {
     const [a_first, a_second] = pair_a.split('-').map(e => Number(e))
     const [b_first, b_second] = pair_b.split('-').map(e => Number(e))
 
-    ;((Number(a_first) >= Number(b_first) && Number(a_second) <= Number(b_second)) ||
-      (Number(b_first) >= Number(a_first) && Number(b_second) <= Number(a_second))) &&
+    ;((a_first >= b_first && a_second <= b_second) ||
+      (b_first >= a_first && b_second <= a_second)) &&
       result.part1++
 
-    !(Number(a_second) < Number(b_first) || Number(a_first) > Number(b_second)) && result.part2++
+    !(a_second < b_first || a_first > b_second) && result.part2++
   })
   return result
 }
