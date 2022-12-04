@@ -8,14 +8,7 @@ const result = {
 }
 
 const day3 = () => {
-  function sliceIntoChunks(arr, chunkSize) {
-    const res = []
-    for (let i = 0; i < arr.length; i += chunkSize) {
-      const chunk = arr.slice(i, i + chunkSize)
-      res.push(chunk)
-    }
-    return res
-  }
+  const letterVal = letter => letter.charCodeAt(0) - (/[a-z]/.test(letter) ? 96 : 38)
 
   data.forEach(el => {
     const len = el.length
@@ -24,19 +17,18 @@ const day3 = () => {
 
     const letter = start.split('').filter(a => end.split('').includes(a))[0]
 
-    result.part1 += letter.charCodeAt(0) - (/[a-z]/.test(letter) ? 96 : 38)
+    result.part1 += letterVal(letter)
   })
 
-  const sliced = sliceIntoChunks(data, 3)
-  sliced.forEach(slice => {
-    const [a, b, c] = slice
-    const common = a
+  for (let i = 0; i < data.length; i += 3) {
+    const [a, b, c] = data.slice(i, i + 3)
+    const letter = a
       .split('')
       .filter(l => b.split('').includes(l))
       .filter(l => c.split('').includes(l))[0]
 
-    result.part2 += common.charCodeAt(0) - (/[a-z]/.test(common) ? 96 : 38)
-  })
+    result.part2 += letterVal(letter)
+  }
 
   return result
 }
