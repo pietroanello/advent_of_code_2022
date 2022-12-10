@@ -1,7 +1,7 @@
 import getData from './getData.js'
 
 const finalData = [[]]
-const data = getData('./assets/day1.txt')
+const data = getData('./../assets/day1.txt')
 
 let i = 0
 data.forEach(el => {

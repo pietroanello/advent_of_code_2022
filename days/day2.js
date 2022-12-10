@@ -48,7 +48,7 @@ const outcomes_2 = {
   },
 }
 
-const data = getData('./assets/day2.txt')
+const data = getData('./../assets/day2.txt')
 
 const result = {
   part1: 0,

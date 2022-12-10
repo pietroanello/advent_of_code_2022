@@ -1,6 +1,6 @@
 import getData from './getData.js'
 
-const data = getData('./assets/day8.txt')
+const data = getData('./../assets/day8.txt')
 
 const result = {
   part1: 0,
